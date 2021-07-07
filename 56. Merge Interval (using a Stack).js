@@ -44,3 +44,12 @@ var merge = function(intervals) {
     // Time Complexity: O(Nlog(N))
     // Space Complexity: O(N)
 };
+
+
+// (1) [[1,3], [2,6]] => [[1,6]]
+// (2) [[1,4],[2,3]] => [[1,4]]
+// Two possible cases to perform merger:
+// 1st case: we merge two arrays and obtain a bigger interval
+// 2nd case: one array absorbs another array and the size doesn't change.
+// Therefore, to cover both cases, when we merge two arrays, we perform the following:
+// [start of first arr, max(end of first arr, end of second arr)]
