@@ -33,3 +33,21 @@
 
 // 1 <= nums.length <= 104
 // 0 <= nums[i] <= 1000
+
+// The idea
+// We know that every point is reachable, so we are only looking for the relationship between the maximum reach of each index and the number of jumps
+// oldMax is the previous jump's maximum reach, if we are at the old max, that means no matter how we move, the next move will cost an extra jump, thus we increment jump, at the same time, 
+// we update the oldMax to the current global max. This max, indicates the maximum reach we will have by having an extra jump.
+var jump = function(nums) {
+    let newMax = 0;
+    let jump = 0;
+    let oldMax = 0;
+    for (let i=0;i<nums.length-1;i++) {
+        newMax = Math.max(newMax, i+nums[i]);
+        if (i == oldMax) {
+            jump++;
+            oldMax = newMax;
+        }
+    }
+    return jump;
+};
