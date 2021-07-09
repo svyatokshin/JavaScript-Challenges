@@ -51,4 +51,17 @@
 //  * @return {number}
  */
 
-we can use recursion to achieve the solution to this problem
+// we can use recursion to achieve the solution to this problem
+// this is what a recursion solution would look like but it is not fast enough to my liking
+var maxDepth = function(root){
+    function helper(node){
+        if(!node){
+            return 0
+        }
+        let left = helper(node.left);
+        let right = helper(node.right);
+        return Math.max(left, right) + 1
+
+    }
+    return helper(root);
+}
