@@ -66,7 +66,7 @@ var maxDepth = function(root){
     return helper(root);
 }
 
-could also solve with a queue for a bit of a faster solution
+// could also solve with a queue for a bit of a faster solution
 
 var maxDepth = function(root){
     if(!root){
