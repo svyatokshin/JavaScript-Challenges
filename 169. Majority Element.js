@@ -29,3 +29,29 @@
 // n == nums.length
 // 1 <= n <= 5 * 104
 // -231 <= nums[i] <= 231 - 1
+
+// /**
+//  * @param {number[]} nums
+//  * @return {number}
+//  */
+ var majorityElement = function(nums) {
+    if (nums.length < 2){
+        return nums[0]
+    }
+    let dict = {};
+    for(i=0;i<nums.length;i++){
+        if(!dict[nums[i]]){
+            dict[nums[i]] = 1
+        }
+        else{
+            dict[nums[i]]++
+        }
+    }
+    let keys = Object.keys(dict);
+    let vals = Object.values(dict);
+    for(let i=0;i<vals.length;i++){
+        if (vals[i] > (nums.length / 2)){
+            return keys[i]
+        }
+    }
+};
