@@ -65,3 +65,35 @@ var maxDepth = function(root){
     }
     return helper(root);
 }
+
+could also solve with a queue for a bit of a faster solution
+
+var maxDepth = function(root){
+    if(!root){
+        return 0
+    }
+//     Want to use a queue here
+    let queue = [root];
+//     while this queue is not empty, we want to run a for loop and shift until we have an empty queue
+//     We want to keep track of the amount of layers there are in this BST while we empty the queue
+//     finally we return the amount of layers after we empty the queue
+//     BST: left and right node
+    let node = root;
+    let layers = 0;
+    while(queue.length !== 0){
+        const queueLen = queue.length
+        for(i=0;i<queueLen;i++){
+            node = queue.shift();
+            if(node.left){
+                queue.push(node.left)
+            }
+            if(node.right){
+                queue.push(node.right)
+            }
+            
+        }
+        layers++
+    }
+    return layers
+
+}
