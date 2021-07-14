@@ -32,7 +32,6 @@
 // strs[i] consists of only lower-case English letters.
 
 
-
 var longestCommonPrefix = function(strs) {
      if (!strs.length) return "";
 
@@ -53,3 +52,11 @@ var longestCommonPrefix = function(strs) {
 
      return longest;
 };
+
+// Build up the longest common prefix.
+// At each idx, compare the char of the first word with char of each of the other words.
+// If at an idx, chars are non-matching, immediately return the LCP.
+// If at an idx, the char is out of bounds, we can also immediately return the LCP. The intuition here is the LCP can only be as long as the shortest word.
+// If all words have a matching char, append it to the longest common prefix.
+// Time --- O(m*n) Where n is the number of strings, and m is the length of the first string.
+// Space -- O(1)
